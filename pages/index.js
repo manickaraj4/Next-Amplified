@@ -9,7 +9,7 @@ import styles from '../styles/Home.module.css';
 
 Amplify.configure({ ...awsExports, ssr: true });
 
-export async function getServerSideProps({ req }) {
+/* export async function getServerSideProps({ req }) {
   const SSR = withSSRContext({ req });
   const response = await SSR.API.graphql({ query: listPosts });
 
@@ -18,7 +18,7 @@ export async function getServerSideProps({ req }) {
       posts: response.data.listPosts.items
     }
   };
-}
+}  */
 
 async function handleCreatePost(event) {
   event.preventDefault();
