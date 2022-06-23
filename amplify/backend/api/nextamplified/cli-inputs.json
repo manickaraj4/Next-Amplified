@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "nextamplified",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/manickgm/AmplifyProjects/NextJs/next-amplified/amplify/backend/api/nextamplified/schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authnextamplified97b035ad"
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 35,
+        "apiKeyExpirationDate": "2022-07-28T16:15:48.939Z",
+        "keyDescription": "Norhing"
+      }
+    ]
+  }
+}
