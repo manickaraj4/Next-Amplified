@@ -6,6 +6,8 @@ import awsExports from '../aws-exports';
 import { createPost } from '../src/graphql/mutations';
 import { listPosts } from '../src/graphql/queries';
 import styles from '../styles/Home.module.css';
+import {useState,useEffect} from 'react';
+
 
 Amplify.configure({ ...awsExports, ssr: true });
 
@@ -19,6 +21,9 @@ Amplify.configure({ ...awsExports, ssr: true });
     }
   };
 }  */
+
+
+
 
 async function handleCreatePost(event) {
   event.preventDefault();
@@ -44,7 +49,20 @@ async function handleCreatePost(event) {
   }
 }
 
-export default function Home({ posts = [] }) {
+export default function Home() {
+  const [posts,setPosts] = useState([]);
+
+  useEffect(()=>{
+    API.graphql({query: listPosts}).then((response)=>{
+      setPosts(response.data.listPosts.items);
+    }).catch((err)=>{
+      console.log(err)
+    });
+  },[]);
+
+
+
+  
   return (
     <div className={styles.container}>
       <Head>
